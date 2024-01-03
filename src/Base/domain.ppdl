@@ -1,0 +1,22 @@
+(define (domain libros)
+    (:requirements :strips :adl :typing :equality :fluents) 
+
+    (:types
+        libro - object
+        mes - object
+    )
+
+    (:predicates
+        (predecesor ?l1 - libro ?l2 - libro)
+        (paralelo ?l1 - libro ?l2 - libro)
+        (leido ?l1 - libro)
+        (quiere ?l1 - libro)
+    )
+
+    (:action action_name
+        :parameters ()
+        :precondition (and )
+        :effect (and )
+    )
+    
+)
