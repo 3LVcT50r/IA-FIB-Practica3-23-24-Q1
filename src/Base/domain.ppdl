@@ -1,9 +1,11 @@
 (define (domain libros)
+
     (:requirements :strips :adl :typing :equality :fluents) 
 
     (:types
         libro - object
         mes - object
+        ;paginas - integer
     )
 
     (:predicates
@@ -11,12 +13,18 @@
         (paralelo ?l1 - libro ?l2 - libro)
         (leido ?l1 - libro)
         (quiere ?l1 - libro)
+        (asignado ?l1 - libro ?m1 - mes)
+        (ordenmes ?m1 - mes ?m2 - mes)
+        ;(pag-lib ?l - libro ?p - paginas)
     )
 
-    (:action action_name
-        :parameters ()
-        :precondition (and )
-        :effect (and )
+    (:functions
+        (pag-por-mes ?m - mes)
     )
-    
+
+    (:action asignar-libro-inicial
+        :parameters (?l - libro ?m - mes)
+        :precondition (and (quiere ?l) (not (leido ?l)))
+        :effect (and (not (quiere ?l)) (leido ?l))
+    )
 )
