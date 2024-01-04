@@ -8,17 +8,18 @@
     )    
 
     (:init
-        (ordenmes enero febrero)
-        (ordenmes febrero marzo)
-        (ordenmes marzo abril)
-        (ordenmes abril mayo)
-        (ordenmes mayo junio)
-        (ordenmes junio julio)
-        (ordenmes julio agosto)
-        (ordenmes agosto septiembre)
-        (ordenmes septiembre octubre)
-        (ordenmes octubre noviembre)
-        (ordenmes noviembre diciembre)
+
+        (mes-anterior enero febrero)
+        (mes-anterior febrero marzo)
+        (mes-anterior marzo abril)
+        (mes-anterior abril mayo)
+        (mes-anterior mayo junio)
+        (mes-anterior junio julio)
+        (mes-anterior julio agosto)
+        (mes-anterior agosto septiembre)
+        (mes-anterior septiembre octubre)
+        (mes-anterior octubre noviembre)
+        (mes-anterior noviembre diciembre)
 
         (= (pag-por-mes enero) 0)
         (= (pag-por-mes febrero) 0)
@@ -37,9 +38,11 @@
         (quiere libro1)
         (quiere libro2)
         (quiere libro3)
-        (leido libro4)
+        (quiere libro4)
         (predecesor libro1 libro2)
-        (paralelo libro2 libro3)
+        (predecesor libro2 libro3)
+        (predecesor libro3 libro4)
+        ;(paralelo libro2 libro3)
     )
 
     (:goal

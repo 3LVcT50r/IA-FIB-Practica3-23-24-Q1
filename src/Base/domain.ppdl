@@ -9,22 +9,33 @@
     )
 
     (:predicates
-        (predecesor ?l1 - libro ?l2 - libro)
+        (predecesor ?l1 - libro ?l2 - libro) ;primero el l1 y despues l2
         (paralelo ?l1 - libro ?l2 - libro)
         (leido ?l1 - libro)
         (quiere ?l1 - libro)
         (asignado ?l1 - libro ?m1 - mes)
-        (ordenmes ?m1 - mes ?m2 - mes)
+        (mes-anterior ?m1 - mes ?m2 - mes)
         ;(pag-lib ?l - libro ?p - paginas)
     )
 
     (:functions
         (pag-por-mes ?m - mes)
+        (libros-leidos)
+        (libros-por-mes ?m - mes)
     )
 
-    (:action asignar-libro-inicial
-        :parameters (?l - libro ?m - mes)
-        :precondition (and (quiere ?l) (not (leido ?l)))
-        :effect (and (not (quiere ?l)) (leido ?l))
+    (:action leer
+        :parameters (?libro - libro ?mes - mes)
+        :precondition (and 
+                    (quiere ?libro) 
+                    (forall (?predecesor - libro) 
+                        (or (not (predecesor ?predecesor ?libro)) 
+                            (and (leido ?predecesor)
+                            
+                            )
+                        )
+                    )
+                )
+        :effect (and (leido ?libro) (quiere ?libro) (asignado ?libro ?mes))
     )
 )
