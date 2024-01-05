@@ -5,8 +5,6 @@
     (:types
         libro - object
         mes - object
-        ;mes-actual - mes
-        ;paginas - integer
     )
 
     (:predicates
@@ -18,16 +16,12 @@
         (mes-anterior ?m1 - mes ?m2 - mes)      ;m2 anterior a m1
         (mes-anterior-p ?m1 - mes ?m2 - mes)    ;m1 anterior a m2
         (mes-siguiente ?ma - mes ?mp - mes)     ;m1 siguiente a m2
-        ;(mes-actual ?mes - mes)
-        ;(pag-lib ?l - libro ?p - paginas)
-        ;(equality ?ma - mes ?mn - mes)
 )
 
     (:functions
         (pag-por-mes ?m - mes)
         (libros-leidos)
         (libros-por-mes ?m - mes)
-        ;(mes-actual)
     )
 
     ;(:action leer-simple
@@ -47,7 +41,6 @@
     (:action leer-predecesor
         :parameters (?libro - libro ?mes - mes)
         :precondition (and 
-                        ;(quiere ?libro)
                         (not (leido ?libro))
                         (forall (?pred - libro) 
                             (imply (predecesor ?pred ?libro) (and (leido ?pred)
@@ -61,25 +54,4 @@
                     (asignado ?libro ?mes)
                 )
     )
-    
-    
-
-    ;(:action leer
-    ;    :parameters (?libro - libro ?me - mes)
-    ;    :precondition (and 
-    ;                (quiere ?libro) 
-    ;                (not (leido ?libro))
-    ;                (forall (?predecesor - libro) 
-    ;                    (and (imply (predecesor ?predecesor ?libro) (leido ?predecesor))))
-    ;                (forall (?libroo) 
-    ;                    (imply (asignado ?libroo ?me) 
-    ;                        ()))
-    ;            )
-    ;    :effect (and 
-    ;                (leido ?libro) 
-    ;                (not (quiere ?libro)) 
-    ;                (asignado ?libro ?me)
-    ;                ;(increase (mes-actual) 1)
-    ;            )
-    ;)
 )

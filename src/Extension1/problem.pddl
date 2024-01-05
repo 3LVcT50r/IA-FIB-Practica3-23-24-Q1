@@ -61,9 +61,9 @@
 
 
         ;(quiere libro1)
-        ;(quiere libro2)
-        (quiere libro3)
-        (quiere libro4)
+        (quiere libro2)
+        ;(quiere libro3)
+        ;(quiere libro4)
         ;(quiere libro5)
         (predecesor libro1 libro2)
         (predecesor libro2 libro3)
