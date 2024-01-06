@@ -1,9 +1,10 @@
-(define (problem problema) 
+(define (problem problema)
 
-    (:domain libros)
+ (:domain libros)
+
 (:objects 
         diciembre noviembre octubre septiembre agosto julio junio mayo abril marzo febrero enero - mes
-        libro_0 libro_1 libro_2 libro_3 libro_4 libro_5 libro_6 libro_7 libro_8 - libro
+        libro_0 libro_1 libro_2 libro_3 libro_4 libro_5 libro_6 libro_7 libro_8 libro_9 libro_10 libro_11 libro_12 libro_13 libro_14 - libro
 )
 (:init 
         (mes-anterior-p enero febrero)
@@ -52,38 +53,54 @@
         (quiere libro_6)
         (quiere libro_7)
         (quiere libro_8)
+        (quiere libro_9)
+        (quiere libro_10)
+        (quiere libro_11)
+        (quiere libro_12)
+        (quiere libro_13)
+        (quiere libro_14)
 
 
-        (= (pag-libro libro_0) 194)
-        (= (pag-libro libro_1) 106)
-        (= (pag-libro libro_2) 411)
-        (= (pag-libro libro_3) 285)
-        (= (pag-libro libro_4) 343)
-        (= (pag-libro libro_5) 62)
-        (= (pag-libro libro_6) 182)
-        (= (pag-libro libro_7) 400)
-        (= (pag-libro libro_8) 56)
+        (= (pag-libro libro_0) 434)
+        (= (pag-libro libro_1) 55)
+        (= (pag-libro libro_2) 272)
+        (= (pag-libro libro_3) 174)
+        (= (pag-libro libro_4) 76)
+        (= (pag-libro libro_5) 65)
+        (= (pag-libro libro_6) 429)
+        (= (pag-libro libro_7) 149)
+        (= (pag-libro libro_8) 268)
+        (= (pag-libro libro_9) 296)
+        (= (pag-libro libro_10) 200)
+        (= (pag-libro libro_11) 225)
+        (= (pag-libro libro_12) 169)
+        (= (pag-libro libro_13) 395)
+        (= (pag-libro libro_14) 413)
 
 
-        (predecesor libro_5 libro_1)
-        (predecesor libro_5 libro_2)
-        (predecesor libro_5 libro_3)
-        (predecesor libro_5 libro_4)
-        (paralelo libro_1 libro_2)
-        (paralelo libro_2 libro_3)
+        (predecesor libro_0 libro_5)
+        (predecesor libro_1 libro_5)
+        (predecesor libro_2 libro_5)
         (paralelo libro_3 libro_4)
-        (paralelo libro_1 libro_4)
-        (paralelo libro_2 libro_4)
-        (paralelo libro_1 libro_3)
+        (paralelo libro_0 libro_6)
+        (predecesor libro_1 libro_6)
+        (paralelo libro_1 libro_7)
+        (predecesor libro_2 libro_7)
+        (predecesor libro_3 libro_6)
+        (predecesor libro_5 libro_6)
+        (predecesor libro_5 libro_7)
+
+        (paralelo libro_8 libro_12)
+        (paralelo libro_8 libro_13)
+        (predecesor libro_9 libro_12)
+        (predecesor libro_9 libro_13)
+        (predecesor libro_10 libro_12)
+        (predecesor libro_10 libro_13)
+        (predecesor libro_11 libro_13)
+        (paralelo libro_11 libro_14)
+
 )
 
-    (:goal
-        (or 
-            (forall (?l - libro) (or 
-                (leido ?l) 
-                (imply (not (leido ?l)) (not (quiere ?l)))
-            ))
-            ;(forall (?m - mes) (> (pag-por-mes ?m) 500))
-        )
-    )
-)
+(:goal
+     (forall (?l - libro) (or (leido ?l) (imply (not (leido ?l)) (not (quiere ?l)))))
+))
