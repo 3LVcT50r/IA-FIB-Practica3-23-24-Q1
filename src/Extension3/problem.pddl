@@ -1,15 +1,11 @@
 (define (problem problema) 
 
     (:domain libros)
-
-    (:objects
+(:objects 
         diciembre noviembre octubre septiembre agosto julio junio mayo abril marzo febrero enero - mes
-        ;enero febrero marzo - mes
-        libro1 libro2 libro3 libro4 libro5 - libro
-    )    
-
-    (:init
-
+        libro_0 libro_1 libro_2 libro_3 libro_4 libro_5 libro_6 libro_7 libro_8 - libro
+)
+(:init 
         (mes-anterior-p enero febrero)
         (mes-anterior-p febrero marzo)
         (mes-anterior-p marzo abril)
@@ -32,7 +28,7 @@
         (mes-anterior septiembre enero)(mes-anterior septiembre febrero)(mes-anterior septiembre marzo)(mes-anterior septiembre abril)(mes-anterior septiembre mayo)(mes-anterior septiembre junio)(mes-anterior septiembre julio)(mes-anterior septiembre agosto)
         (mes-anterior octubre enero)(mes-anterior octubre febrero)(mes-anterior octubre marzo)(mes-anterior octubre abril)(mes-anterior octubre mayo)(mes-anterior octubre junio)(mes-anterior octubre julio)(mes-anterior octubre agosto)(mes-anterior octubre septiembre)
         (mes-anterior noviembre enero)(mes-anterior noviembre febrero)(mes-anterior noviembre marzo)(mes-anterior noviembre abril)(mes-anterior noviembre mayo)(mes-anterior noviembre junio)(mes-anterior noviembre julio)(mes-anterior noviembre agosto)(mes-anterior noviembre septiembre)(mes-anterior noviembre octubre)
-        (mes-anterior diciembre enero)(mes-anterior diciembre febrero)(mes-anterior diciembre marzo)(mes-anterior diciembre abril)(mes-anterior diciembre mayo)(mes-anterior diciembre junio)(mes-anterior diciembre julio)(mes-anterior diciembre agosto)(mes-anterior diciembre septiembre)(mes-anterior diciembre octubre)(mes-anterior diciembre noviembre) 
+        (mes-anterior diciembre enero)(mes-anterior diciembre febrero)(mes-anterior diciembre marzo)(mes-anterior diciembre abril)(mes-anterior diciembre mayo)(mes-anterior diciembre junio)(mes-anterior diciembre julio)(mes-anterior diciembre agosto)(mes-anterior diciembre septiembre)(mes-anterior diciembre octubre)(mes-anterior diciembre noviembre)
 
         (= (pag-por-mes enero) 0)
         (= (pag-por-mes febrero) 0)
@@ -47,45 +43,45 @@
         (= (pag-por-mes noviembre) 0)
         (= (pag-por-mes diciembre) 0)
 
-        (= (pag-libro libro1) 213)
-        (= (pag-libro libro2) 213)
-        (= (pag-libro libro3) 813)
-        (= (pag-libro libro4) 813)
-        (= (pag-libro libro5) 813)
+        (quiere libro_0)
+        (quiere libro_1)
+        (quiere libro_2)
+        (quiere libro_3)
+        (quiere libro_4)
+        (quiere libro_5)
+        (quiere libro_6)
+        (quiere libro_7)
+        (quiere libro_8)
 
 
+        (= (pag-libro libro_0) 194)
+        (= (pag-libro libro_1) 106)
+        (= (pag-libro libro_2) 411)
+        (= (pag-libro libro_3) 285)
+        (= (pag-libro libro_4) 343)
+        (= (pag-libro libro_5) 62)
+        (= (pag-libro libro_6) 182)
+        (= (pag-libro libro_7) 400)
+        (= (pag-libro libro_8) 56)
 
-        (quiere libro1)
-        (quiere libro2)
-        (quiere libro3)
-        (quiere libro4)
-        (quiere libro5)
-        (predecesor libro1 libro2)
-        (predecesor libro1 libro3)
-        (predecesor libro3 libro4)
-        (paralelo libro2 libro3)
-        (paralelo libro4 libro2)
 
-    )
+        (paralelo libro_0 libro_5)
+        (predecesor libro_1 libro_5)
+        (paralelo libro_0 libro_7)
+        (predecesor libro_3 libro_6)
+        (paralelo libro_3 libro_8)
+        (predecesor libro_4 libro_6)
+        (paralelo libro_4 libro_8)
+)
+
 
     (:goal
-        (forall (?l - libro) (or (leido ?l) (imply (not (leido ?l)) (not (quiere ?l)))))
+        (or 
+            (forall (?l - libro) (or 
+                (leido ?l) 
+                (imply (not (leido ?l)) (not (quiere ?l)))
+            ))
+            ;(forall (?m - mes) (> (pag-por-mes ?m) 500))
+        )
     )
-
-    ;(:metric 
-    ;    minimize 
-    ;        (+ (* (libros-por-mes enero) 1.5) 
-    ;        (+ (* (libros-por-mes febrero) 1.5)
-    ;        (+ (* (libros-por-mes marzo) 1.5)
-    ;        (+ (* (libros-por-mes abril) 1.5)
-    ;        (+ (* (libros-por-mes mayo) 1.5)
-    ;        (+ (* (libros-por-mes junio) 1.5)
-    ;        (+ (* (libros-por-mes julio) 1.5)
-    ;        (+ (* (libros-por-mes agosto) 1.5)
-    ;        (+ (* (libros-por-mes septiembre) 1.5)
-    ;        (+ (* (libros-por-mes octubre) 1.5)
-    ;        (+ (* (libros-por-mes noviembre) 1.5) 
-    ;           (* (libros-por-mes diciembre) 1.5))
-    ;        ))))))))))
-    ;)
 )
