@@ -15,6 +15,7 @@ int MIN_RANKS = 0;
 int MAX_RANKS = 0;
 int PERCENT = 0;
 int FOREST_SIZE = 0;
+int TYPE=0;
 ofstream myfile;
 
 
@@ -34,7 +35,11 @@ int create_dag(int n, vector<queue<string>>& bosque) {
       for (k = 0; k < new_nodes; k++)
          if ( (rand () % 100) < PERCENT) {
             char word[50], word2[50];
-            if (rand () % 100 <= 70) { // Blue predesceseors
+            int prob=0;
+            if (TYPE > 1) prob = 70;
+            else if (TYPE == 1) prob = 100;
+
+            if (rand () % 100 <= prob) { // Blue predesceseors
                sprintf (word, "(predecesor libro_%d libro_%d)\n", j+n, k + nodes+n);
                sprintf (word2, "  libro_%d -> libro_%d [color=\"blue\"];\n", j+n, k + nodes+n);
             }
@@ -55,32 +60,39 @@ int create_dag(int n, vector<queue<string>>& bosque) {
 
 int main(int argc, char *argv[]) {
 
-   if (argc != 7) {
-      printf("Usage: MIN_PER_RANK MAX_PER_RANK MIN_RANKS MAX_RANKS PERCENT FOREST_SIZE\n");
+   if (argc != 8) {
+      printf("Usage: TYPE MIN_PER_RANK MAX_PER_RANK MIN_RANKS MAX_RANKS PERCENT FOREST_SIZE\n");
       return 1;  // Código de error
    }
 
    // Convertir los parámetros a enteros usando atoi
-   MIN_PER_RANK = atoi(argv[1]); /* Nodes/Rank: How 'fat' the DAG should be.  */
-   MAX_PER_RANK = atoi(argv[2]);
-   MIN_RANKS = atoi(argv[3]); /* Ranks: How 'tall' the DAG should be.  */
-   MAX_RANKS = atoi(argv[4]);
-   PERCENT = atoi(argv[5]); /* Chance of having an Edge.  */
-   FOREST_SIZE = atoi(argv[6]); /* Size of the forest */
+   TYPE = atoi(argv[1]);
+   MIN_PER_RANK = atoi(argv[2]); /* Nodes/Rank: How 'fat' the DAG should be.  */
+   MAX_PER_RANK = atoi(argv[3]);
+   MIN_RANKS = atoi(argv[4]); /* Ranks: How 'tall' the DAG should be.  */
+   MAX_RANKS = atoi(argv[5]);
+   PERCENT = atoi(argv[6]); /* Chance of having an Edge.  */
+   FOREST_SIZE = atoi(argv[7]); /* Size of the forest */
 
    // Verificar si la conversión fue exitosa
-   if (MIN_PER_RANK == 0 && *argv[1] != '0' ||
-      MAX_PER_RANK == 0 && *argv[2] != '0' ||
-      MIN_RANKS == 0 && *argv[3] != '0' ||
-      MAX_RANKS == 0 && *argv[4] != '0' ||
-      PERCENT == 0 && *argv[5] != '0' ||
-      FOREST_SIZE == 0 && *argv[6] != '0' ) {
+   if (TYPE == 0 && *argv[1] != '0' ||
+      MIN_PER_RANK == 0 && *argv[2] != '0' ||
+      MAX_PER_RANK == 0 && *argv[3] != '0' ||
+      MIN_RANKS == 0 && *argv[4] != '0' ||
+      MAX_RANKS == 0 && *argv[5] != '0' ||
+      PERCENT == 0 && *argv[6] != '0' ||
+      FOREST_SIZE == 0 && *argv[7] != '0') {
       printf("Error: Todos los parámetros deben ser enteros.\n");
       return 1;  // Código de error
    }
 
    if (MIN_PER_RANK > MAX_PER_RANK || MIN_RANKS > MAX_RANKS) {
       printf("Minimos deben ser mayores a maximo\n");
+      return 1;
+   }
+
+   if ( TYPE > 3 && TYPE < 1 ) {
+      printf("La extension solo puede ser 1, 2 o 3\n");
       return 1;
    }
 
@@ -130,28 +142,31 @@ int main(int argc, char *argv[]) {
    cout << "        (mes-anterior noviembre enero)(mes-anterior noviembre febrero)(mes-anterior noviembre marzo)(mes-anterior noviembre abril)(mes-anterior noviembre mayo)(mes-anterior noviembre junio)(mes-anterior noviembre julio)(mes-anterior noviembre agosto)(mes-anterior noviembre septiembre)(mes-anterior noviembre octubre)" << endl;
    cout << "        (mes-anterior diciembre enero)(mes-anterior diciembre febrero)(mes-anterior diciembre marzo)(mes-anterior diciembre abril)(mes-anterior diciembre mayo)(mes-anterior diciembre junio)(mes-anterior diciembre julio)(mes-anterior diciembre agosto)(mes-anterior diciembre septiembre)(mes-anterior diciembre octubre)(mes-anterior diciembre noviembre)" << endl << endl;
 
-   cout << "        (= (pag-por-mes enero) 0)" << endl;
-   cout << "        (= (pag-por-mes febrero) 0)" << endl;
-   cout << "        (= (pag-por-mes marzo) 0)" << endl;
-   cout << "        (= (pag-por-mes abril) 0)" << endl;
-   cout << "        (= (pag-por-mes mayo) 0)" << endl;
-   cout << "        (= (pag-por-mes junio) 0)" << endl;
-   cout << "        (= (pag-por-mes julio) 0)" << endl;
-   cout << "        (= (pag-por-mes agosto) 0)" << endl;
-   cout << "        (= (pag-por-mes septiembre) 0)" << endl;
-   cout << "        (= (pag-por-mes octubre) 0)" << endl;
-   cout << "        (= (pag-por-mes noviembre) 0)" << endl;
-   cout << "        (= (pag-por-mes diciembre) 0)" << endl << endl;
+   if (TYPE == 3) {
+      cout << "        (= (pag-por-mes enero) 0)" << endl;
+      cout << "        (= (pag-por-mes febrero) 0)" << endl;
+      cout << "        (= (pag-por-mes marzo) 0)" << endl;
+      cout << "        (= (pag-por-mes abril) 0)" << endl;
+      cout << "        (= (pag-por-mes mayo) 0)" << endl;
+      cout << "        (= (pag-por-mes junio) 0)" << endl;
+      cout << "        (= (pag-por-mes julio) 0)" << endl;
+      cout << "        (= (pag-por-mes agosto) 0)" << endl;
+      cout << "        (= (pag-por-mes septiembre) 0)" << endl;
+      cout << "        (= (pag-por-mes octubre) 0)" << endl;
+      cout << "        (= (pag-por-mes noviembre) 0)" << endl;
+      cout << "        (= (pag-por-mes diciembre) 0)" << endl << endl;
+   }
 
    for (int i=0; i < nodes; ++i) {
       printf ("        (quiere libro_%d)\n", i); 
    }
 
-   printf ("\n\n"); 
-
-   for (int i=0; i < nodes; ++i) {
-      int num = (rand()%(450-50)) + 50;
-      printf ("        (= (pag-libro libro_%d) %d)\n", i, num); 
+   if (TYPE == 3) {
+      printf ("\n\n"); 
+      for (int i=0; i < nodes; ++i) {
+         int num = (rand()%(450-50)) + 50;
+         printf ("        (= (pag-libro libro_%d) %d)\n", i, num); 
+      }
    }
 
    cout << endl << endl;
