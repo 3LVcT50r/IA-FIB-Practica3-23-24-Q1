@@ -1,0 +1,19 @@
+digraph {
+  libro_0 -> libro_3 [color="blue"];
+  libro_0 -> libro_4 [color="blue"];
+  libro_1 -> libro_3 [color="blue"];
+  libro_1 -> libro_4 [color="red"];
+  libro_2 -> libro_3 [color="blue"];
+  libro_2 -> libro_4 [color="red"];
+  libro_5 -> libro_9 [color="red"];
+  libro_5 -> libro_10 [color="blue"];
+  libro_5 -> libro_11 [color="blue"];
+  libro_6 -> libro_9 [color="red"];
+  libro_6 -> libro_10 [color="blue"];
+  libro_6 -> libro_11 [color="red"];
+  libro_7 -> libro_9 [color="blue"];
+  libro_7 -> libro_10 [color="blue"];
+  libro_7 -> libro_11 [color="blue"];
+  libro_8 -> libro_9 [color="blue"];
+  libro_8 -> libro_11 [color="blue"];
+}

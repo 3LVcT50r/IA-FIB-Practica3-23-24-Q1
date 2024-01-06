@@ -15,7 +15,7 @@
         (mes-anterior ?m1 - mes ?m2 - mes)      ;m2 anterior a m1
     )
 
-    (:action leer-predecesor
+    (:action leer
         :parameters (?l - libro ?m - mes)
         :precondition (and 
                         ;(quiere ?l)
