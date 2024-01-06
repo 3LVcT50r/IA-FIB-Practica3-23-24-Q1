@@ -75,7 +75,6 @@
         (paralelo libro_0 libro_8)
 )
 
-
     (:goal
         (or 
             (forall (?l - libro) (or 
