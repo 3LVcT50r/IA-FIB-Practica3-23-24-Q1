@@ -111,6 +111,11 @@ int main(int argc, char *argv[]) {
    myfile << "}\n";
    myfile.close();
 
+
+   cout << "(define (problem problema)" << endl << endl;
+
+   cout << " (:domain libros)" << endl << endl;
+
    cout << "(:objects " << endl;
    cout << "        diciembre noviembre octubre septiembre agosto julio junio mayo abril marzo febrero enero - mes" << endl;
    cout << "        "; for (int i=0; i < nodes; ++i) cout << "libro_" << i << " ";
@@ -178,7 +183,12 @@ int main(int argc, char *argv[]) {
       }
       cout << endl;
    }
-   cout << ")" << endl;
+   cout << ")" << endl << endl;
+
+   cout << "(:goal" << endl;
+   cout << "     (forall (?l - libro) (or (leido ?l) (imply (not (leido ?l)) (not (quiere ?l)))))" << endl;
+   cout << "))" << endl;
+
 
   return 0;
 }
