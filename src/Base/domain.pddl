@@ -20,7 +20,7 @@
         :precondition (and 
                         ;(quiere ?l)
                         (not (leido ?l))
-                        (exists (?pred - libro) 
+                        (forall (?pred - libro) 
                             (imply (predecesor ?pred ?l) (and (leido ?pred)
                                 (forall (?m-anterior - mes) 
                                     (imply (asignado ?pred ?m-anterior) 

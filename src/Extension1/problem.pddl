@@ -30,9 +30,9 @@
         (predecesor libro2 libro3)
         (predecesor libro1 libro3)
         
-        (predecesor libro2 libro1)
-        (predecesor libro1 libro3)
-        (predecesor libro1 libro2)
+        ;(predecesor libro2 libro1)
+        ;(predecesor libro1 libro3)
+        ;(predecesor libro1 libro2)
         (predecesor libro3 libro4)
         ;(paralelo libro2 libro3)
         ;(mes-actual enero)
