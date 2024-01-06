@@ -72,6 +72,7 @@
         (paralelo libro_3 libro_8)
         (predecesor libro_4 libro_6)
         (paralelo libro_4 libro_8)
+        (paralelo libro_0 libro_8)
 )
 
 
