@@ -25,7 +25,7 @@
     (:action leer
         :parameters (?l - libro ?m - mes)
         :precondition (and 
-                        (< (pag-por-mes ?m) 800)
+                        (< (+ (pag-por-mes ?m) (pag-libro ?l)) 800)
                         (not (leido ?l))
                         (forall (?pred - libro) 
                             (imply (predecesor ?pred ?l) (and (leido ?pred)
@@ -65,7 +65,7 @@
         :precondition (and 
                         (not (leido ?l))
                         (quiere ?l)
-                        (< (pag-por-mes ?m) 800)
+                        (< (+ (pag-por-mes ?m) (pag-libro ?l)) 800)
                         (forall (?pred - libro)
                             (imply (predecesor ?pred ?l)
                                 (leido ?pred)
