@@ -123,17 +123,20 @@ int main(int argc, char *argv[]) {
    cout << ")" << endl;
 
    cout << "(:init " << endl;
-   cout << "        (mes-anterior-p enero febrero)" << endl;
-   cout << "        (mes-anterior-p febrero marzo)" << endl;
-   cout << "        (mes-anterior-p marzo abril)" << endl;
-   cout << "        (mes-anterior-p abril mayo)" << endl;
-   cout << "        (mes-anterior-p mayo junio)" << endl;
-   cout << "        (mes-anterior-p junio julio)" << endl;
-   cout << "        (mes-anterior-p julio agosto)" << endl;
-   cout << "        (mes-anterior-p agosto septiembre)" << endl;
-   cout << "        (mes-anterior-p septiembre octubre)" << endl;
-   cout << "        (mes-anterior-p octubre noviembre)" << endl;
-   cout << "        (mes-anterior-p noviembre diciembre)" << endl << endl;
+
+   if (TYPE > 1) {
+      cout << "        (mes-anterior-p enero febrero)" << endl;
+      cout << "        (mes-anterior-p febrero marzo)" << endl;
+      cout << "        (mes-anterior-p marzo abril)" << endl;
+      cout << "        (mes-anterior-p abril mayo)" << endl;
+      cout << "        (mes-anterior-p mayo junio)" << endl;
+      cout << "        (mes-anterior-p junio julio)" << endl;
+      cout << "        (mes-anterior-p julio agosto)" << endl;
+      cout << "        (mes-anterior-p agosto septiembre)" << endl;
+      cout << "        (mes-anterior-p septiembre octubre)" << endl;
+      cout << "        (mes-anterior-p octubre noviembre)" << endl;
+      cout << "        (mes-anterior-p noviembre diciembre)" << endl << endl;
+   }
         
    cout << "        (mes-anterior febrero enero)" << endl;
    cout << "        (mes-anterior marzo enero)(mes-anterior marzo febrero)" << endl;
