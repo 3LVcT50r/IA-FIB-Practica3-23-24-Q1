@@ -34,22 +34,6 @@
         (mes-anterior noviembre enero)(mes-anterior noviembre febrero)(mes-anterior noviembre marzo)(mes-anterior noviembre abril)(mes-anterior noviembre mayo)(mes-anterior noviembre junio)(mes-anterior noviembre julio)(mes-anterior noviembre agosto)(mes-anterior noviembre septiembre)(mes-anterior noviembre octubre)
         (mes-anterior diciembre enero)(mes-anterior diciembre febrero)(mes-anterior diciembre marzo)(mes-anterior diciembre abril)(mes-anterior diciembre mayo)(mes-anterior diciembre junio)(mes-anterior diciembre julio)(mes-anterior diciembre agosto)(mes-anterior diciembre septiembre)(mes-anterior diciembre octubre)(mes-anterior diciembre noviembre) 
 
-        (= (libros-por-mes enero) 1)
-        (= (libros-por-mes febrero) 1)
-        (= (libros-por-mes marzo) 1)
-        (= (libros-por-mes abril) 1)
-        (= (libros-por-mes mayo) 1)
-        (= (libros-por-mes junio) 1)
-        (= (libros-por-mes julio) 1)
-        (= (libros-por-mes agosto) 1)
-        (= (libros-por-mes septiembre) 1)
-        (= (libros-por-mes octubre) 1)
-        (= (libros-por-mes noviembre) 1)
-        (= (libros-por-mes diciembre) 1)
-
-        (= (pag-libro libro1) 213)
-
-
         (quiere libro1)
         (quiere libro2)
         (quiere libro3)
@@ -65,22 +49,5 @@
 
     (:goal
         (forall (?l - libro) (or (leido ?l) (imply (not (leido ?l)) (not (quiere ?l)))))
-    )
-
-    (:metric 
-        minimize 
-            (+ (* (libros-por-mes enero) 1.5) 
-            (+ (* (libros-por-mes febrero) 1.5)
-            (+ (* (libros-por-mes marzo) 1.5)
-            (+ (* (libros-por-mes abril) 1.5)
-            (+ (* (libros-por-mes mayo) 1.5)
-            (+ (* (libros-por-mes junio) 1.5)
-            (+ (* (libros-por-mes julio) 1.5)
-            (+ (* (libros-por-mes agosto) 1.5)
-            (+ (* (libros-por-mes septiembre) 1.5)
-            (+ (* (libros-por-mes octubre) 1.5)
-            (+ (* (libros-por-mes noviembre) 1.5) 
-               (* (libros-por-mes diciembre) 1.5))
-            ))))))))))
     )
 )
