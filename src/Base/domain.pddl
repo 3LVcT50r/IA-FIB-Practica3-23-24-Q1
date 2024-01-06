@@ -1,6 +1,6 @@
 (define (domain libros)
 
-    (:requirements :strips :adl :typing :fluents) 
+    (:requirements :strips :adl :typing) 
 
     (:types
         libro - object
@@ -13,9 +13,6 @@
         (quiere ?l1 - libro)
         (asignado ?l1 - libro ?m1 - mes)
         (mes-anterior ?m1 - mes ?m2 - mes)      ;m2 anterior a m1
-)
-
-    (:functions
     )
 
     (:action leer-predecesor

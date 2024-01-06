@@ -1,8 +1,21 @@
 digraph {
-  libro_2 -> libro_3 [color="red"];
-  libro_5 -> libro_8 [color="red"];
-  libro_6 -> libro_7 [color="red"];
-  libro_9 -> libro_10 [color="blue"];
-  libro_13 -> libro_14 [color="blue"];
-  libro_19 -> libro_20 [color="red"];
+  libro_0 -> libro_5 [color="blue"];
+  libro_1 -> libro_5 [color="blue"];
+  libro_2 -> libro_5 [color="blue"];
+  libro_3 -> libro_4 [color="red"];
+  libro_0 -> libro_6 [color="red"];
+  libro_1 -> libro_6 [color="blue"];
+  libro_1 -> libro_7 [color="red"];
+  libro_2 -> libro_7 [color="blue"];
+  libro_3 -> libro_6 [color="blue"];
+  libro_5 -> libro_6 [color="blue"];
+  libro_5 -> libro_7 [color="blue"];
+  libro_8 -> libro_12 [color="red"];
+  libro_8 -> libro_13 [color="red"];
+  libro_9 -> libro_12 [color="blue"];
+  libro_9 -> libro_13 [color="blue"];
+  libro_10 -> libro_12 [color="blue"];
+  libro_10 -> libro_13 [color="blue"];
+  libro_11 -> libro_13 [color="blue"];
+  libro_11 -> libro_14 [color="red"];
 }

@@ -34,7 +34,7 @@
                                         (mes-anterior ?m ?m-anterior)))
                             ))
                         )
-                        (forall (?par - libro)
+                        (exists (?par - libro)
                             (imply (and (leido ?par) (or (paralelo ?par ?l) (paralelo ?l ?par)))
                                 (and 
                                     (leido ?par)

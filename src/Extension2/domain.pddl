@@ -1,6 +1,6 @@
 (define (domain libros)
 
-    (:requirements :strips :adl :typing:fluents) 
+    (:requirements :strips :adl :typing) 
 
     (:types
         libro - object
@@ -17,9 +17,6 @@
         (mes-anterior-p ?m1 - mes ?m2 - mes)    ;m1 anterior a m2
     )
 
-    (:functions
-    )
-
     (:action leer
         :parameters (?l - libro ?m - mes)
         :precondition (and 
@@ -31,7 +28,7 @@
                                         (mes-anterior ?m ?m-anterior)))
                             ))
                         )
-                        (forall (?par - libro)
+                        (exists (?par - libro)
                             (imply (and (leido ?par) (or (paralelo ?par ?l) (paralelo ?l ?par)))
                                 (and 
                                     (leido ?par)

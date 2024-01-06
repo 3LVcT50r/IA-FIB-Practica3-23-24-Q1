@@ -4,7 +4,6 @@
 
     (:objects
         diciembre noviembre octubre septiembre agosto julio junio mayo abril marzo febrero enero - mes
-        ;enero febrero marzo - mes
         libro1 libro2 libro3 libro4 libro5 - libro
     )    
 
