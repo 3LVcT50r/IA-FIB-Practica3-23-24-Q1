@@ -50,21 +50,4 @@
     (:goal
         (forall (?l - libro) (or (leido ?l) (imply (not (leido ?l)) (not (quiere ?l)))))
     )
-
-    (:metric 
-        minimize 
-            (+ (* (libros-por-mes enero) 1.5) 
-            (+ (* (libros-por-mes febrero) 1.5)
-            (+ (* (libros-por-mes marzo) 1.5)
-            (+ (* (libros-por-mes abril) 1.5)
-            (+ (* (libros-por-mes mayo) 1.5)
-            (+ (* (libros-por-mes junio) 1.5)
-            (+ (* (libros-por-mes julio) 1.5)
-            (+ (* (libros-por-mes agosto) 1.5)
-            (+ (* (libros-por-mes septiembre) 1.5)
-            (+ (* (libros-por-mes octubre) 1.5)
-            (+ (* (libros-por-mes noviembre) 1.5) 
-               (* (libros-por-mes diciembre) 1.5))
-            ))))))))))
-    )
 )
